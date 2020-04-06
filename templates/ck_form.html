@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+</head>
+<body>
+
+<form method="POST" action="/show_form_data">
+	<h2>Form section</h2>
+	Title: <input type="text" name="title_field" required><br>
+	Content: 
+	<div id="editor">
+		<textarea id="content" name="content_field"></textarea>
+	</div>
+    <input type="submit" value="Submit">
+</form>
+  
+<div>
+	
+	{% if field1 %} 
+		<h2>Captured Form Data</h2>
+		<p>Title: {{field1}}</p>
+		{% if field2 %} 
+			<p>Content: {{field2}}</p>
+		{% else %}
+			<p>Content: [empty]</p>
+		{% endif %}
+		<a href="/">back</a>
+	{% endif %}
+	
+</div>
+  
+<script>
+    CKEDITOR.replace( 'content_field' );
+</script>
+ </body>
+</html>
